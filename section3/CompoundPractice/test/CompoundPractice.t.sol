@@ -3,7 +3,7 @@ pragma solidity 0.8.19;
 
 import {EIP20Interface} from "compound-protocol/contracts/EIP20Interface.sol";
 import {CErc20} from "compound-protocol/contracts/CErc20.sol";
-import "test/helper/CompoundPracticeSetUp.sol";
+import "./helper/CompoundPracticeSetUp.sol";
 
 interface IBorrower {
     function borrow() external;
