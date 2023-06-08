@@ -60,7 +60,7 @@ contract DeployCompoundScript is Script {
         apwk = new ERC20("Appworks Token", "APWK"); // 6
         cApwk = createCErc20(apwk, "CToken of APWK", "cAPWK"); // 7
 
-        bindMarket(CToken(address(cApwk)));
+        bindMarket(cApwk);
         vm.stopBroadcast();
     }
 
