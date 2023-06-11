@@ -67,7 +67,13 @@ contract DeployCompoundScript is Script {
     function bindMarket(CToken cToken) internal {
         comptroller._supportMarket(cToken);
         cToken._setComptroller(comptroller);
-        oracle.setUnderlyingPrice(cToken, 1);
+        oracle.setUnderlyingPrice(cToken, 1 * 1e18);
+    }
+
+    function enterOneMarket(address cToken) internal {
+        address[] memory cTokens = new address[](1);
+        cTokens[0] = cToken;
+        comptroller.enterMarkets(cTokens);
     }
 
     function createCErc20(ERC20 underlying, string memory name, string memory symbol) internal returns (CErc20) {
